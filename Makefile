@@ -1,12 +1,14 @@
 .PHONY: clean
-## rm -f main.wasm
+## git clean -Xdf
 clean:
 	git clean -Xdf
 
 .PHONY: build
 ## wasm-pack build
+## npm link ./pkg
 build:
-	wasm-pack build
+	wasm-pack build --target nodejs --dev
+	npm link ./pkg
 	
 .PHONY: run
 ## node main.js
